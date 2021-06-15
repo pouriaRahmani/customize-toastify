@@ -1,0 +1,155 @@
+﻿@font-face {
+    font-family: 'vazir';
+    src: url('../fonts/vazir.eot') format('eot'), url('../fonts/vazir.ttf') format('truetype'), url('../fonts/vazir.woff') format('woff'), url('../fonts/vazir.woff2') format('woff2');
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --whiteColor: #fff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'vazir';
+    direction: rtl;
+    overflow-x: hidden;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+}
+
+.button button {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    color: #fff;
+    font-family: 'vazir';
+    font-size: 15px;
+    background-color: #c00;
+    box-shadow: 1px 3px 10px #a49d9d;
+    cursor: pointer;
+}
+
+.toastify {
+    visibility: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+    color: #fff;
+    width: 250px;
+    height: 50px;
+    border-radius: 3px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.toastify.show {
+    visibility: visible;
+    animation: show .4s ease-in forwards;
+    -webkit-animation: show .4s ease-in forwards;
+}
+
+@keyframes show {
+    0% {
+        transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        -moz-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        -o-transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+    }
+}
+
+.toastify.show::before {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgb(194, 146, 241);
+    border-radius: 40px;
+    animation: myAnimation 5s linear forwards;
+    -webkit-animation: myAnimation 5s linear forwards;
+}
+
+@keyframes myAnimation {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+.toastify.hide {
+    visibility: visible;
+    animation: hide .4s ease-in forwards;
+    -webkit-animation: hide .4s ease-in forwards;
+}
+
+@keyframes hide {
+    0% {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+    }
+    100% {
+        transform: translateX(130%);
+        -webkit-transform: translateX(130%);
+        -moz-transform: translateX(130%);
+        -ms-transform: translateX(130%);
+        -o-transform: translateX(130%);
+        visibility: hidden;
+    }
+}
+
+.toastify .toastContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+}
+
+.toastify .toastContainer .close {
+    cursor: pointer;
+}
+
+.toastify .toastContainer .content {
+    user-select: none;
+}
